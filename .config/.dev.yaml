@@ -1,2 +1,21 @@
-TEST_VALUE:
-  name: cookie
+MONGODB_CONFIG:
+  name: "mongodb"              
+  type: mongodb                      
+  url: "mongodb://localhost:27017" 
+  username: "jiahe"                  
+  password: "123456"               
+  database: "admin"     
+  entities: "mongo"                  
+  logging: false                    
+  synchronize: true                 
+MYSQL_CONFIG:
+  name: "mysql"
+  type: "mysql"
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: "123456"
+  database: "mysql_database"
+  entities: "mysql"
+  logging: true
+  synchronize: true

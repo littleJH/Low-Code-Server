@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.4'
 
 volumes:
   mongodb_data:
@@ -7,6 +7,11 @@ volumes:
 services:
   mongo:
     image: bitnami/mongodb:5.0.8
+    restart: always
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=jiahe
+      - MONGO_INITDB_ROOT_PASSWORD=123456
     volumes:
       - 'mongodb_data:/Users/Shared/mongodb'
     ports:
@@ -14,8 +19,14 @@ services:
 
   mysql:
     image: bitnami/mysql:8.0
+    restart: always
+    container_name: mysql
     environment:
+      - MYSQL_ROOT_USERNAME=jiahe
       - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_USERNAME=jiahe
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=mysql_database
     volumes:
       - 'mysql_data:/Users/Shared/mysql'
     ports:

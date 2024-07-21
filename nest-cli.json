@@ -4,8 +4,11 @@
   "sourceRoot": "apps/low-code-test/src",
   "compilerOptions": {
     "deleteOutDir": true,
-    "webpack": true,
+    "webpack": false,
     "tsConfigPath": "apps/low-code-test/tsconfig.app.json"
+  },
+  "generateOptions": {
+    "spec": false
   },
   "monorepo": true,
   "root": "apps/low-code-test",
@@ -16,7 +19,8 @@
       "entryFile": "main",
       "sourceRoot": "apps/low-code-test/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/low-code-test/tsconfig.app.json"
+        "tsConfigPath": "apps/low-code-test/tsconfig.app.json",
+        "deleteOutDir": true
       }
     },
     "devops": {
@@ -35,6 +39,15 @@
       "sourceRoot": "libs/comm/src",
       "compilerOptions": {
         "tsConfigPath": "libs/comm/tsconfig.lib.json"
+      }
+    },
+    "user": {
+      "type": "application",
+      "root": "apps/user",
+      "entryFile": "main",
+      "sourceRoot": "apps/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/user/tsconfig.app.json"
       }
     }
   }

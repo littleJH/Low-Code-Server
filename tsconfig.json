@@ -1,12 +1,29 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@app/common": [
+        "libs/common/src"
+      ],
+      "@app/common/*": [
+        "libs/common/src/*"
+      ],
+      "@ignitionServer/*": [
+        "apps/ignitionServer/src/*"
+      ],
+      "@devopsServer/*": [
+        "apps/devopsServer/src/*"
+      ],
+      "@materialsServer/*": [
+        "apps/materialsServer/src/*"
+      ]
+    },
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
+    "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -17,14 +34,12 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "resolveJsonModule": true,
-    "paths": {
-      "@app/comm": [
-        "libs/comm/src"
-      ],
-      "@app/comm/*": [
-        "libs/comm/src/*"
-      ]
-    }
-  }
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*spec.ts"
+  ]
 }

@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
 import { VERSION_NEUTRAL, VersioningType } from '@nestjs/common';
@@ -12,6 +12,8 @@ async function bootstrap() {
 
   // 使用全局拦截器
   app.useGlobalInterceptors(new TransformInterceptor());
+
+  const { httpAdapter } = app.get(HttpAdapterHost);
   // 使用全局过滤器
   app.useGlobalFilters(new AllExceptionsFilter(), new HttpExceptionFilter());
 
