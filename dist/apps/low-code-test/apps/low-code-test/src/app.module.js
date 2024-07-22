@@ -12,19 +12,23 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
 const utils_1 = require("../../../libs/common/src/utils");
-const user_module_1 = require("./user/user.module");
+const site_module_1 = require("./site/site.module");
+const page_module_1 = require("./page/page.module");
+const database_module_1 = require("../../../libs/common/src/database/database.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            database_module_1.DatabaseModule,
             config_1.ConfigModule.forRoot({
                 ignoreEnvFile: true,
                 isGlobal: true,
                 load: [utils_1.getConfig],
             }),
-            user_module_1.UserModule,
+            site_module_1.SiteModule,
+            page_module_1.PageModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

@@ -1,7 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { Repository } from 'typeorm';
+import { Not, Repository } from 'typeorm';
 import { User } from './entities/user.mysql.entity';
 import { DepartmentService } from '../department/department.service';
 
@@ -25,12 +23,28 @@ export class UserService {
 
   findAll() {
     return this.userRepository.find({
+      select: ['id', 'name'],
       relations: ['department'],
+      // cache: 5000,
     });
   }
 
   findOne(id: number) {
     return this.userRepository.findOneBy({ id });
+  }
+
+  findNotOne(id: number) {
+    return this.userRepository.find({
+      where: {
+        id: Not(id),
+      },
+    });
+  }
+
+  findNotOneWithQueryBuild(id: number) {
+    const user = this.userRepository.createQueryBuilder('user');
+    user.where('user.id != :id', { id });
+    return user.getMany();
   }
 
   update(id: number, updateUserDto) {

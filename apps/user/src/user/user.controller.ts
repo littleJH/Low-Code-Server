@@ -30,6 +30,11 @@ export class UserController {
     return this.userService.findOne(+id);
   }
 
+  @Get('notone/:id')
+  findNotOne(@Param('id') id: string) {
+    return this.userService.findNotOneWithQueryBuild(+id);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(+id, updateUserDto);

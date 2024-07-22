@@ -7,7 +7,6 @@ const naming_strategies_1 = require("./naming.strategies");
 const { MONGODB_CONFIG, MYSQL_CONFIG } = (0, index_1.getConfig)();
 const MONGODB_DATABASE_CONFIG = Object.assign(Object.assign({}, MONGODB_CONFIG), { entities: [`dist/**/*.${MONGODB_CONFIG.entities}.entity.js`] });
 const MYSQL_DATABASE_CONFIG = Object.assign(Object.assign({}, MYSQL_CONFIG), { namingStrategy: new naming_strategies_1.NamingStrategy(), entities: [`dist/**/*.${MYSQL_CONFIG.entities}.entity.js`] });
-console.log('🚀 ~ MONGODB_DATABASE_CONFIG:', MONGODB_DATABASE_CONFIG);
 const MONGODB_DATA_SOURCE = new typeorm_1.DataSource(MONGODB_DATABASE_CONFIG);
 const MYSQL_DATA_SOURCE = new typeorm_1.DataSource(MYSQL_DATABASE_CONFIG);
 exports.DatabaseProviders = [

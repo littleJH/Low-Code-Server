@@ -41,6 +41,9 @@ importers:
       fastify:
         specifier: ^4.28.1
         version: 4.28.1
+      mongodb:
+        specifier: ^6.8.0
+        version: 6.8.0
       mongoose:
         specifier: ^8.5.1
         version: 8.5.1
@@ -58,7 +61,7 @@ importers:
         version: 2.0.7
       typeorm:
         specifier: ^0.3.20
-        version: 0.3.20(mysql2@3.10.3)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
+        version: 0.3.20(mongodb@6.8.0)(mysql2@3.10.3)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3))
       yaml:
         specifier: ^2.4.5
         version: 2.4.5
@@ -2323,6 +2326,33 @@ packages:
 
   mongodb@6.7.0:
     resolution: {integrity: sha512-TMKyHdtMcO0fYBNORiYdmM25ijsHs+Njs963r4Tro4OQZzqYigAzYQouwWRg4OIaiLRUEGUh/1UAcH5lxdSLIA==}
+    engines: {node: '>=16.20.1'}
+    peerDependencies:
+      '@aws-sdk/credential-providers': ^3.188.0
+      '@mongodb-js/zstd': ^1.1.0
+      gcp-metadata: ^5.2.0
+      kerberos: ^2.0.1
+      mongodb-client-encryption: '>=6.0.0 <7'
+      snappy: ^7.2.2
+      socks: ^2.7.1
+    peerDependenciesMeta:
+      '@aws-sdk/credential-providers':
+        optional: true
+      '@mongodb-js/zstd':
+        optional: true
+      gcp-metadata:
+        optional: true
+      kerberos:
+        optional: true
+      mongodb-client-encryption:
+        optional: true
+      snappy:
+        optional: true
+      socks:
+        optional: true
+
+  mongodb@6.8.0:
+    resolution: {integrity: sha512-HGQ9NWDle5WvwMnrvUxsFYPd3JEbqD3RgABHBQRuoCEND0qzhsd0iH5ypHsf1eJ+sXmvmyKpP+FLOKY8Il7jMw==}
     engines: {node: '>=16.20.1'}
     peerDependencies:
       '@aws-sdk/credential-providers': ^3.188.0
@@ -6091,6 +6121,12 @@ snapshots:
       bson: 6.8.0
       mongodb-connection-string-url: 3.0.1
 
+  mongodb@6.8.0:
+    dependencies:
+      '@mongodb-js/saslprep': 1.1.8
+      bson: 6.8.0
+      mongodb-connection-string-url: 3.0.1
+
   mongoose@8.5.1:
     dependencies:
       bson: 6.8.0
@@ -6862,7 +6898,7 @@ snapshots:
 
   typedarray@0.0.6: {}
 
-  typeorm@0.3.20(mysql2@3.10.3)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
+  typeorm@0.3.20(mongodb@6.8.0)(mysql2@3.10.3)(ts-node@10.9.2(@types/node@20.14.11)(typescript@5.5.3)):
     dependencies:
       '@sqltools/formatter': 1.2.5
       app-root-path: 3.1.0
@@ -6880,6 +6916,7 @@ snapshots:
       uuid: 9.0.1
       yargs: 17.7.2
     optionalDependencies:
+      mongodb: 6.8.0
       mysql2: 3.10.3
       ts-node: 10.9.2(@types/node@20.14.11)(typescript@5.5.3)
     transitivePeerDependencies:

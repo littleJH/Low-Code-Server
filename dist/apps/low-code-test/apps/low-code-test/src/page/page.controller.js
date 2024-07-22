@@ -12,79 +12,69 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.PageController = void 0;
 const common_1 = require("@nestjs/common");
-const user_service_1 = require("./user.service");
-const create_user_dto_1 = require("./dto/create-user.dto");
-const update_user_dto_1 = require("./dto/update-user.dto");
-let UserController = class UserController {
-    constructor(userService) {
-        this.userService = userService;
+const page_service_1 = require("./page.service");
+const create_page_dto_1 = require("./dto/create-page.dto");
+const update_page_dto_1 = require("./dto/update-page.dto");
+let PageController = class PageController {
+    constructor(pageService) {
+        this.pageService = pageService;
     }
-    create(createUserDto) {
-        return this.userService.create(createUserDto);
+    create(createPageDto) {
+        return this.pageService.create(createPageDto);
     }
     findAll() {
-        return this.userService.findAll();
+        return this.pageService.findAll();
     }
     findOne(id) {
-        return this.userService.findOne(+id);
+        return this.pageService.findOne(+id);
     }
-    findNotOne(id) {
-        return this.userService.findNotOneWithQueryBuild(+id);
-    }
-    update(id, updateUserDto) {
-        return this.userService.update(+id, updateUserDto);
+    update(id, updatePageDto) {
+        return this.pageService.update(+id, updatePageDto);
     }
     remove(id) {
-        return this.userService.remove(+id);
+        return this.pageService.remove(+id);
     }
 };
-exports.UserController = UserController;
+exports.PageController = PageController;
 __decorate([
-    (0, common_1.Post)('create'),
+    (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
+    __metadata("design:paramtypes", [create_page_dto_1.CreatePageDto]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "create", null);
+], PageController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "findAll", null);
+], PageController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Get)('notone/:id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], UserController.prototype, "findNotOne", null);
+], PageController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDto]),
+    __metadata("design:paramtypes", [String, update_page_dto_1.UpdatePageDto]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "update", null);
+], PageController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "remove", null);
-exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)('user'),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+], PageController.prototype, "remove", null);
+exports.PageController = PageController = __decorate([
+    (0, common_1.Controller)('page'),
+    __metadata("design:paramtypes", [page_service_1.PageService])
+], PageController);
+//# sourceMappingURL=page.controller.js.map

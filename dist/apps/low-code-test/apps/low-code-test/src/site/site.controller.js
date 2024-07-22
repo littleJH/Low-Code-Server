@@ -12,79 +12,69 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.SiteController = void 0;
 const common_1 = require("@nestjs/common");
-const user_service_1 = require("./user.service");
-const create_user_dto_1 = require("./dto/create-user.dto");
-const update_user_dto_1 = require("./dto/update-user.dto");
-let UserController = class UserController {
-    constructor(userService) {
-        this.userService = userService;
+const site_service_1 = require("./site.service");
+const create_site_dto_1 = require("./dto/create-site.dto");
+const update_site_dto_1 = require("./dto/update-site.dto");
+let SiteController = class SiteController {
+    constructor(siteService) {
+        this.siteService = siteService;
     }
-    create(createUserDto) {
-        return this.userService.create(createUserDto);
+    create(createSiteDto) {
+        return this.siteService.create(createSiteDto);
     }
     findAll() {
-        return this.userService.findAll();
+        return this.siteService.findAll();
     }
     findOne(id) {
-        return this.userService.findOne(+id);
+        return this.siteService.findOne(id);
     }
-    findNotOne(id) {
-        return this.userService.findNotOneWithQueryBuild(+id);
-    }
-    update(id, updateUserDto) {
-        return this.userService.update(+id, updateUserDto);
+    update(id, updateSiteDto) {
+        return this.siteService.update(+id, updateSiteDto);
     }
     remove(id) {
-        return this.userService.remove(+id);
+        return this.siteService.remove(+id);
     }
 };
-exports.UserController = UserController;
+exports.SiteController = SiteController;
 __decorate([
-    (0, common_1.Post)('create'),
+    (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
+    __metadata("design:paramtypes", [create_site_dto_1.CreateSiteDto]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "create", null);
+], SiteController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "findAll", null);
+], SiteController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Get)('notone/:id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], UserController.prototype, "findNotOne", null);
+], SiteController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDto]),
+    __metadata("design:paramtypes", [String, update_site_dto_1.UpdateSiteDto]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "update", null);
+], SiteController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "remove", null);
-exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)('user'),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+], SiteController.prototype, "remove", null);
+exports.SiteController = SiteController = __decorate([
+    (0, common_1.Controller)('site'),
+    __metadata("design:paramtypes", [site_service_1.SiteService])
+], SiteController);
+//# sourceMappingURL=site.controller.js.map

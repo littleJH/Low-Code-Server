@@ -27,11 +27,24 @@ let UserService = class UserService {
     }
     findAll() {
         return this.userRepository.find({
+            select: ['id', 'name'],
             relations: ['department'],
         });
     }
     findOne(id) {
         return this.userRepository.findOneBy({ id });
+    }
+    findNotOne(id) {
+        return this.userRepository.find({
+            where: {
+                id: (0, typeorm_1.Not)(id),
+            },
+        });
+    }
+    findNotOneWithQueryBuild(id) {
+        const user = this.userRepository.createQueryBuilder('user');
+        user.where('user.id != :id', { id });
+        return user.getMany();
     }
     update(id, updateUserDto) {
         return this.userRepository.update({ id }, updateUserDto);
